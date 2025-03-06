@@ -113,3 +113,18 @@ console.log(user8);
 // Garbage collection:
 // We don't delete objects explicitly. JavScript's garbage collector
 // do it for us, when we lost the last reference to an object. 
+
+// Call the non-existing property
+
+let someExample = new Object(); 
+
+// console.log(someExample.objectProperty.propertyProperty); Raises an error
+
+console.log(someExample.property ? someExample.property.propertyProperty : undefined);
+// Command above returns propertyProperty of property object if exists, 
+// undefined elsewise, but it's pretty unreadable. Instead use:
+console.log(someExample?.property?.propertyProperty);
+console.log( someExample?.["Some key"] );
+// Or call some method with a bit weird syntax
+someExample.nonExistingMethod?.();
+
